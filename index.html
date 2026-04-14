@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png"/>
+    <title>🎵 Spotify Clone - Enhanced</title>
+</head>
+
+<body>
+<div class="tooltip" id="tooltip"></div>
+<header>
+    <div class="menu_side">
+        <h1>🎵 Spotify</h1>
+        <div class="playlist">
+            <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> All Songs</h4>
+            <h4><span></span><i class="bi bi-list-ul"></i> My Playlists</h4>
+            <h4><span></span><i class="bi bi-heart-fill"></i> Favorites</h4>
+        </div>
+
+        <!-- Create Playlist Button -->
+        <button class="btn_create_playlist" id="createPlaylistBtn" title="Create New Playlist">
+            <i class="bi bi-plus-circle"></i> New Playlist
+        </button>
+
+        <!-- My Playlists Section -->
+        <div class="my_playlists" id="myPlaylists">
+            <h5 class="playlists_title">My Playlists</h5>
+            <ul class="playlists_list" id="playlistsList"></ul>
+        </div>
+
+        <div class="menu_song">
+            <li class="songItem">
+                <span>01</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
+            </li>
+            <li class="songItem">
+                <span>02</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="2"></i>
+            </li>
+            <li class="songItem">
+                <span>03</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
+            </li>
+            <li class="songItem">
+                <span>04</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="4"></i>
+            </li>
+            <li class="songItem">
+                <span>05</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="5"></i>
+            </li>
+            <li class="songItem">
+                <span>06</span>
+                <img src="img/1.jpg" alt="Alan">
+                <h5>
+                    On My Way
+                    <div class="subtitle">Alan Walker</div>
+                </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="6"></i>
+            </li>
+        </div>
+    </div>
+
+
+    <div class="song_side">
+        <nav>
+            <ul class="nav_tabs">
+                <li class="nav_tab active" data-tab="discover">
+                    <i class="bi bi-compass"></i> Discover <span></span>
+                </li>
+                <li class="nav_tab" data-tab="library">
+                    <i class="bi bi-collection"></i> MY LIBRARY
+                </li>
+                <li class="nav_tab" data-tab="radio">
+                    <i class="bi bi-broadcast"></i> RADIO
+                </li>
+            </ul>
+            <div class="search_container">
+                <i class="bi bi-search"></i>
+                <input type="text" id="searchInput" placeholder="Search Music, Artist, Genre...">
+                <button class="btn_clear_search" id="clearSearchBtn" style="display:none;">
+                    <i class="bi bi-x-circle"></i>
+                </button>
+            </div>
+            <div class="user">
+                <img src="logo.png" alt="User" title="Spotify (Chirag Nagar)">
+            </div>
+        </nav>
+
+        <!-- Discover Tab Content -->
+        <div class="tab_content active" id="discover_tab">
+            <div class="content featured_content">
+                <h1 id="featured_title">Alan Walker - Faded</h1>
+                <p id="featured_desc">
+                    So when your tears roll down your pillow like a river 
+                    <br>
+                    I'll be there for you
+                </p>
+                <div class="buttons">
+                    <button class="btn_play_featured" id="playFeatured">
+                        <i class="bi bi-play-fill"></i> PLAY
+                    </button>
+                    <button class="btn_follow_featured" id="followFeatured">
+                        <i class="bi bi-heart"></i> FOLLOW
+                    </button>
+                </div>
+            </div>
+            <div class="popular_song">
+                <div class="h4">
+                    <h4>🔥 Popular Song</h4>
+                    <div class="btn_s">
+                        <i id="left_scroll" class="bi bi-arrow-left-short"></i>
+                        <i id="right_scroll" class="bi bi-arrow-right-short"></i>
+                    </div>
+                </div>
+                <div class="pop_song">
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
+                        <!-- change All id  -->
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="9"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="10"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="11"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="12"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="13"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="14"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/1.jpg" alt="alan">
+                        <i class="bi playListPlay bi-play-circle-fill" id="15"></i>
+                    </div>
+                    <h5>On My Way
+                        <br>
+                        <div class="subtitle">Alan Walker</div>
+                    </h5>
+                </li>
+            </div>
+        </div>
+        <div class="popular_artists">
+            <div class="h4">
+                <h4>Popular Artists</h4>
+                <div class="btn_s">
+                    <i id="left_scrolls" class="bi bi-arrow-left-short"></i>
+                    <i id="right_scrolls" class="bi bi-arrow-right-short"></i>
+                </div>
+            </div>
+            <div class="item">
+                <li>
+                    <img src="img/arjit.jpg" alt="Arjit Singh" title="Arjit Singh">
+                </li>
+                <li>
+                    <img src="img/alan.jpg" alt="Alan Walker" title="Alan Walker">
+                </li>
+                <li>
+                    <img src="img/atif.jpg" alt="Atif Aslam" title="Atif Aslam">
+                </li>
+                <li>
+                    <img src="img/guru.jpg" alt="Guru RAndawa" title="Guru Randawa">
+                </li>
+                <li>
+                    <img src="img/dhvani.jpg" alt="Dhvani" title="Dhvani">
+                </li>
+                <li>
+                    <img src="img/Diljit_Dosanjh.jpg" alt="Diljit Dosanjh" title="Diljit Dosanjh">
+                </li>
+                <li>
+                    <img src="img/jubin Nautiyal.jpg" alt="Jubin Nautiyal" title="Jubin Nautiyal">
+                </li>
+                <li>
+                    <img src="img/neha.jpg" alt="Neha Kakker" title="Neha Kakker">
+                </li>
+                <li>
+                    <img src="img/justin-bieber-lede.jpg" alt="Justin Bieber" title="Justin Bieber">
+                </li>
+                <li>
+                    <img src="img/honey.jpg" alt="Honey Singh" title="Honey Singh">
+                </li>
+                <li>
+                    <img src="img/akhil.jpg" alt="Akhil" title="Akhil">
+                </li>
+                <!-- change all img  -->
+            </div>
+        </div>
+        </div>
+
+        <!-- MY LIBRARY Tab Content -->
+        <div class="tab_content" id="library_tab">
+            <div class="library_header">
+                <h2>📚 My Library</h2>
+                <p>Browse your playlists and favorites</p>
+            </div>
+            <div class="library_sections">
+                <div class="library_section">
+                    <h3>❤️ Favorites</h3>
+                    <ul class="favorites_list" id="favoritesList"></ul>
+                </div>
+                <div class="library_section">
+                    <h3>📋 My Playlists</h3>
+                    <ul class="library_playlists" id="libraryPlaylists"></ul>
+                </div>
+                <div class="library_section">
+                    <h3>🎵 Recently Played</h3>
+                    <ul class="recently_played" id="recentlyPlayed"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- RADIO Tab Content -->
+        <div class="tab_content" id="radio_tab">
+            <div class="radio_header">
+                <div class="radio_header_top">
+                    <h2>📻 Radio Stations</h2>
+                    <button class="btn_create_station" id="createStationBtn" title="Create New Station">
+                        <i class="bi bi-plus-lg"></i> Create Station
+                    </button>
+                </div>
+                <p>Listen to and manage your favorite radio stations</p>
+                
+                <!-- Now Playing Section -->
+                <div class="now_playing_section" id="nowPlayingRadio" style="display:none;">
+                    <div class="now_playing_info">
+                        <i class="bi bi-broadcast"></i>
+                        <div>
+                            <h4>Now Playing</h4>
+                            <p id="nowPlayingStationName"></p>
+                        </div>
+                        <button class="btn_stop_radio" id="stopRadioBtn">
+                            <i class="bi bi-stop-circle-fill"></i> Stop
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Predefined Stations -->
+            <div class="radio_section">
+                <h3>🎙️ Popular Stations</h3>
+                <div class="radio_stations_grid" id="predefinedStations"></div>
+            </div>
+
+            <!-- Custom Stations -->
+            <div class="radio_section" id="customStationsSection" style="display:none;">
+                <h3>⭐ My Stations</h3>
+                <div class="radio_stations_grid" id="customStations"></div>
+            </div>
+        </div>
+
+        <!-- Search Results Tab -->
+        <div class="tab_content" id="search_results_tab">
+            <div class="search_header">
+                <h2>Search Results</h2>
+                <p id="search_result_count"></p>
+            </div>
+            <div class="search_results_list" id="searchResultsList"></div>
+        </div>
+    </div>
+
+
+    <div class="master_play">
+        <div class="wave">
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+        </div>
+        <img src="img/1.jpg" alt="Song" id="poster_master_play">
+        <h5 id="title">Select a Song<br>
+            <div class="subtitle">Click to Play</div>
+        </h5>
+        <div class="icon">
+            <i class="bi bi-shuffle" id="shuffle" title="Shuffle"></i>
+            <i class="bi bi-skip-start-fill" id="back" title="Previous"></i>
+            <i class="bi bi-play-fill" id="masterPlay" title="Play/Pause"></i>
+            <i class="bi bi-skip-end-fill" id="next" title="Next"></i>
+            <i class="bi bi-arrow-repeat" id="repeat" title="Repeat"></i>
+            <i class="bi bi-heart" id="favorite" title="Add to Favorites"></i>
+        </div>
+        <span id="currentStart">0:00</span>
+        <div class="bar">
+            <input type="range" id="seek" min="0" value="0" max="100">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
+        </div>
+        <span id="currentEnd">0:00</span>
+
+        <div class="vol">
+            <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+            <input type="range" id="vol" min="0" value="30" max="100">
+            <div class="vol_bar"></div>
+            <div class="dot" id="vol_dot"></div>
+        </div>
+    </div>
+
+    <!-- Radio Station CRUD Modal -->
+    <div class="radio_modal" id="radioModal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <h2 id="radioModalTitle">Create Radio Station</h2>
+                <button class="modal_close" id="closeRadioModal">&times;</button>
+            </div>
+            <form class="modal_form" id="radioStationForm">
+                <div class="form_group">
+                    <label for="stationName">Station Name</label>
+                    <input type="text" id="stationName" placeholder="e.g., My Playlist" required>
+                </div>
+                <div class="form_group">
+                    <label for="stationDesc">Description</label>
+                    <textarea id="stationDesc" placeholder="Describe this station..." rows="2"></textarea>
+                </div>
+                <div class="form_group">
+                    <label for="stationIcon">Station Icon</label>
+                    <select id="stationIcon">
+                        <option value="bi-broadcast">📻 Broadcast</option>
+                        <option value="bi-music-note-beamed">🎵 Music</option>
+                        <option value="bi-heart-pulse">💗 Workout</option>
+                        <option value="bi-moon-stars">🌙 Night</option>
+                        <option value="bi-sun">☀️ Sunny</option>
+                        <option value="bi-fire">🔥 Hot</option>
+                        <option value="bi-star">⭐ Star</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="stationSongs">Songs (comma-separated IDs: 1,2,3)</label>
+                    <input type="text" id="stationSongs" placeholder="e.g., 1,2,3,4,5" required>
+                </div>
+                <div class="form_actions">
+                    <button type="submit" class="btn_submit" id="submitRadioBtn">Create</button>
+                    <button type="button" class="btn_cancel" id="cancelRadioBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        <div class="modal_content">
+            <div class="modal_header">
+                <h2 id="modalTitle">Create Playlist</h2>
+                <button class="modal_close" id="closeModal">&times;</button>
+            </div>
+            <form class="modal_form" id="playlistForm">
+                <div class="form_group">
+                    <label for="playlistName">Playlist Name</label>
+                    <input type="text" id="playlistName" placeholder="Enter playlist name..." required>
+                </div>
+                <div class="form_group">
+                    <label for="playlistDesc">Description</label>
+                    <textarea id="playlistDesc" placeholder="Add description..." rows="3"></textarea>
+                </div>
+                <div class="form_actions">
+                    <button type="submit" class="btn_submit" id="submitBtn">Create</button>
+                    <button type="button" class="btn_cancel" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Playlist Details Modal -->
+    <div class="playlist_details_modal" id="playlistDetailsModal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <h2 id="playlistDetailsTitle">Playlist</h2>
+                <button class="modal_close" id="closeDetailsModal">&times;</button>
+            </div>
+            <div class="playlist_details_content">
+                <p id="playlistDetailsDesc">Description here</p>
+                <div class="playlist_actions">
+                    <button class="btn_edit" id="editPlaylistBtn">
+                        <i class="bi bi-pencil"></i> Edit
+                    </button>
+                    <button class="btn_delete" id="deletePlaylistBtn">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                    <button class="btn_close_details" id="closeDetailsBtn">Close</button>
+                </div>
+                <div class="playlist_songs" id="playlistSongs">
+                    <h3>Songs in Playlist</h3>
+                    <ul id="playlistSongsList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <script src="app.js"></script>
+</body>
+
+</html>
