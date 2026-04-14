@@ -602,57 +602,12 @@ let index = 0;
 let poster_master_play = document.getElementById('poster_master_play');
 let title = document.getElementById('title');
 
+// Attach click listeners to all play buttons in sidebar
 Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
+        e.stopPropagation();
         index = e.target.id;
-        makeAllPlays();
-        e.target.classList.remove('bi-play-circle-fill');
-        e.target.classList.add('bi-pause-circle-fill');
-        music.src = `audio/${index}.mp3`;
-        poster_master_play.src =`img/${index}.jpg`;
-        music.play();
-        let song_title = songs.filter((ele)=>{
-            return ele.id == index;
-        })
-
-        song_title.forEach(ele =>{
-            let {songName} = ele;
-            title.innerHTML = songName;
-        })
-        masterPlay.classList.remove('bi-play-fill');
-        masterPlay.classList.add('bi-pause-fill');
-        wave.classList.add('active2');
-        
-        // Track recently played
-        if (!recentlyPlayed.includes(index)) {
-            recentlyPlayed.push(index);
-        }
-        localStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed));
-        updateLibraryDisplay();
-        
-        // Update favorite button state
-        updateFavoriteButton();
-
-        music.addEventListener('ended',()=>{
-            masterPlay.classList.add('bi-play-fill');
-            masterPlay.classList.remove('bi-pause-fill');
-            wave.classList.remove('active2');
-            
-            // Handle repeat and shuffle
-            if (repeat_mode === 2) {
-                // Repeat one
-                music.currentTime = 0;
-                music.play();
-            } else if (shuffle_active) {
-                // Shuffle next
-                playNextShuffled();
-            } else {
-                // Normal next
-                playNext();
-            }
-        })
-        makeAllBackgrounds();
-        Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background = "rgb(105, 105, 170, .1)";
+        playSongAtIndex();
     })
 })
 
@@ -708,6 +663,28 @@ music.addEventListener('ended', ()=>{
     masterPlay.classList.add('bi-play-fill');
     masterPlay.classList.remove('bi-pause-fill');
     wave.classList.remove('active2');
+    
+    // Handle repeat and shuffle
+    if (repeat_mode === 2) {
+        // Repeat one - play same song again
+        music.currentTime = 0;
+        music.play();
+        masterPlay.classList.remove('bi-play-fill');
+        masterPlay.classList.add('bi-pause-fill');
+        wave.classList.add('active2');
+    } else if (shuffle_active) {
+        // Shuffle next
+        playNextShuffled();
+    } else {
+        // Normal next or repeat all
+        if (repeat_mode === 1) {
+            // Repeat all - go to next, and loop back at end
+            playNext();
+        } else {
+            // No repeat - just go to next
+            playNext();
+        }
+    }
 })
 
 
