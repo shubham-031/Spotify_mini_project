@@ -829,3 +829,27 @@ window.addEventListener('load', () => {
     updateFavoriteButton();
     updateLibraryDisplay();
 });
+
+// ===== TRENDING SONGS SCROLL =====
+const leftTrendingBtn = document.getElementById('left_trending');
+const rightTrendingBtn = document.getElementById('right_trending');
+const trendingContainer = document.getElementById('trendingContainer');
+
+if (leftTrendingBtn && rightTrendingBtn && trendingContainer) {
+    leftTrendingBtn.addEventListener('click', () => {
+        trendingContainer.scrollLeft -= 250;
+    });
+
+    rightTrendingBtn.addEventListener('click', () => {
+        trendingContainer.scrollLeft += 250;
+    });
+}
+
+// ===== MOOD CARDS INTERACTIONS =====
+const moodCards = document.querySelectorAll('.mood_card');
+moodCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const moodName = card.querySelector('h4').textContent;
+        showTooltip(`🎵 Play ${moodName} playlist`, card.getBoundingClientRect().left + 75, card.getBoundingClientRect().top);
+    });
+});

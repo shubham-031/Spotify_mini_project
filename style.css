@@ -54,6 +54,29 @@ header .menu_side, .song_side {
 header .song_side {
     width: 75%;
     background: #0b1320;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar styling for song_side */
+header .song_side::-webkit-scrollbar {
+    width: 8px;
+}
+
+header .song_side::-webkit-scrollbar-track {
+    background: rgba(29, 185, 84, 0.1);
+    border-radius: 10px;
+}
+
+header .song_side::-webkit-scrollbar-thumb {
+    background: #1DB954;
+    border-radius: 10px;
+}
+
+header .song_side::-webkit-scrollbar-thumb:hover {
+    background: #1ed760;
 }
 
 header .master_play {
@@ -1353,6 +1376,284 @@ header .master_play .vol input{
  .search_result_item p {
     color: #4c5262;
     font-size: 10px;
+ }
+
+ /* ===== NEW SECTIONS STYLING ===== */
+
+ /* Trending Songs Section */
+ .trending_section {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px 0;
+    border-top: 1px solid rgba(29, 185, 84, 0.2);
+ }
+
+ .trending_section .h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+ }
+
+ .trending_section h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+ }
+
+ .trending_songs {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+ }
+
+ .trending_songs::-webkit-scrollbar {
+    height: 6px;
+ }
+
+ .trending_songs::-webkit-scrollbar-track {
+    background: transparent;
+ }
+
+ .trending_songs::-webkit-scrollbar-thumb {
+    background: #1DB954;
+    border-radius: 3px;
+ }
+
+ .trending_item {
+    flex-shrink: 0;
+    width: 180px;
+    background: linear-gradient(135deg, rgba(29, 185, 84, 0.1), rgba(29, 185, 84, 0.05));
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(29, 185, 84, 0.2);
+ }
+
+ .trending_item:hover {
+    background: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.1));
+    border-color: #1DB954;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.2);
+ }
+
+ .trending_item .img_play {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+ }
+
+ .trending_item .img_play img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+
+ .trending_item .img_play .bi {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: #1DB954;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+ }
+
+ .trending_item:hover .img_play .bi {
+    opacity: 1;
+ }
+
+ .trending_item h5 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+ }
+
+ .trending_item .subtitle {
+    font-size: 10px;
+    color: #999;
+    margin-top: 4px;
+ }
+
+ /* Mood & Vibe Section */
+ .mood_section {
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px 0;
+ }
+
+ .mood_section h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+ }
+
+ .mood_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+ }
+
+ .mood_card {
+    background: linear-gradient(135deg, #1DB954, #1ed760);
+    padding: 25px 15px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+ }
+
+ .mood_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.4);
+ }
+
+ .mood_icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+ }
+
+ .mood_card h4 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+ }
+
+ .mood_card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+ }
+
+ @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+ }
+
+ /* Top Charts Section */
+ .charts_section {
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px 0;
+    border-top: 1px solid rgba(29, 185, 84, 0.2);
+ }
+
+ .charts_section .h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+ }
+
+ .charts_section h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+ }
+
+ .see_all {
+    color: #1DB954;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+
+ .see_all:hover {
+    color: #1ed760;
+    transform: translateX(3px);
+ }
+
+ .charts_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+ }
+
+ .chart_item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(29, 185, 84, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    gap: 12px;
+ }
+
+ .chart_item:hover {
+    background: rgba(29, 185, 84, 0.12);
+    border-color: #1DB954;
+ }
+
+ .chart_rank {
+    color: #1DB954;
+    font-size: 18px;
+    font-weight: 700;
+    min-width: 30px;
+    text-align: center;
+ }
+
+ .chart_item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+ }
+
+ .chart_info {
+    flex: 1;
+ }
+
+ .chart_info h5 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+ }
+
+ .chart_info p {
+    color: #999;
+    font-size: 11px;
+ }
+
+ .chart_plays {
+    color: #4c5262;
+    font-size: 11px;
+    white-space: nowrap;
+ }
+
+ /* Footer Section */
+ .discover_footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #4c5262;
+    font-size: 11px;
+    border-top: 1px solid rgba(29, 185, 84, 0.1);
+    margin-top: 40px;
+ }
+
+ .discover_footer p {
+    font-size: 11px;
+    font-weight: 500;
+ }
+
+ /* ===== RESPONSIVE ADJUSTMENTS ===== */
+ @media (max-width: 1024px) {
+    .mood_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
  }
  header .song_side nav .user{
     position: relative;
